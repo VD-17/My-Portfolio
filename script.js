@@ -108,15 +108,21 @@ function updateProjectDeatil(index) {
         `<span class="tech">${tech}</span>`
     ).join('');
 
-    const actionLinks = document.querySelectorAll('.pro-actions a');
+    // const actionLinks = document.querySelectorAll('.pro-actions a');
 
-    const viewProjectButton = project.viewLink 
-        ? `<a href="${project.viewLink}" target="_blank"><i class='bx bx-arrow-out-up-right-square'></i> View Project</a>` 
+    const proActions = document.querySelector(".pro-actions");
+
+    const viewProjectButton = project.link 
+        ? `<a href="${project.link}" target="_blank"><i class='bx bx-arrow-out-up-right-square'></i> View Project</a>` 
+        : '';
+
+    const sourceButton = project.gitlink 
+        ? `<a href="${project.gitlink}" target="_blank"><i class='bx bx-folder-code'></i> Source</a>`
         : '';
 
     proActions.innerHTML = `
         ${viewProjectButton}
-        <a href="${project.gitlink}" target="_blank"><i class='bx bx-folder-code'></i> Source</a>
+        ${sourceButton}
     `;
 
     // if (actionLinks[0]) actionLinks[0].href = project.link;
